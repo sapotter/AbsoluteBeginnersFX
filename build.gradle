@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
     id 'org.beryx.jlink' version '2.24.1'
 }
 
@@ -13,11 +13,13 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.8.2'
+    junitVersion = '5.10.2'
 }
 
-sourceCompatibility = '16'
-targetCompatibility = '16'
+java {
+    sourceCompatibility = '21'
+    targetCompatibility = '21'
+}
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
@@ -34,7 +36,6 @@ javafx {
 }
 
 dependencies {
-
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
